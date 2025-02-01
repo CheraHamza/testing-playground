@@ -1,4 +1,4 @@
-const { capitalize, reverseString } = require("./script.js");
+const { capitalize, reverseString, calculator } = require("./script.js");
 
 describe("capitalize", () => {
 	const testCases = [
@@ -31,3 +31,27 @@ describe("reverseString", () => {
 		}
 	);
 });
+
+describe("calculator", () => {
+	test("adding two integers", () => {
+		expect(calculator.add(5, 4)).toBe(9);
+	});
+
+	test("subtracting two integers", () => {
+		expect(calculator.sub(3, 4)).toBe(-1);
+	});
+
+	test("multiplying two integers", () => {
+		expect(calculator.mul(3, 4)).toBe(12);
+	});
+
+	test("dividing two integers", () => {
+		expect(calculator.div(5, 4)).toBe(1.25);
+	});
+
+	test("dividing two real numbers", () => {
+		expect(calculator.div(4.23, 1.33)).toBeCloseTo(3.18);
+	});
+});
+
+
