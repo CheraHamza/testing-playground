@@ -62,6 +62,50 @@ function caesarCipher(string, shiftBy) {
 	return characters.join("");
 }
 
+function analyzeArray(array) {
+	const length = array.length;
+	const min = () => {
+		let currMin = array[0];
+		array.forEach((element) => {
+			if (element < currMin) {
+				currMin = element;
+			}
+		});
 
+		return currMin;
+	};
+	const max = () => {
+		let currMax = array[0];
+		array.forEach((element) => {
+			if (element > currMax) {
+				currMax = element;
+			}
+		});
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher };
+		return currMax;
+	};
+
+	const average = () => {
+		let sum = 0;
+		array.forEach((element) => {
+			sum += element;
+		});
+
+		return sum / length;
+	};
+
+	return {
+		average: average(),
+		min: min(),
+		max: max(),
+		length: length,
+	};
+}
+
+module.exports = {
+	capitalize,
+	reverseString,
+	calculator,
+	caesarCipher,
+	analyzeArray,
+};
