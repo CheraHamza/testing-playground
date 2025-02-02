@@ -3,6 +3,7 @@ const {
 	reverseString,
 	calculator,
 	caesarCipher,
+	analyzeArray,
 } = require("./script.js");
 
 describe("capitalize", () => {
@@ -71,6 +72,26 @@ describe("caesarCipher", () => {
 		"given $input, shifting it by $shiftBy it becomes $expected",
 		({ input, shiftBy, expected }) => {
 			expect(caesarCipher(input, shiftBy)).toBe(expected);
+		}
+	);
+});
+
+describe("analyzeArray", () => {
+	const testCases = [
+		{
+			input: [1, 8, 3, 4, 2, 6],
+			expected: { average: 4, min: 1, max: 8, length: 6 },
+		},
+		{
+			input: [1, 2, 3, 4, 5, 6, 7, 8],
+			expected: { average: 4.5, min: 1, max: 8, length: 8 },
+		},
+	];
+
+	test.each(testCases)(
+		"given $input, the result is $expected",
+		({ input, expected }) => {
+			expect(analyzeArray(input)).toEqual(expected);
 		}
 	);
 });
