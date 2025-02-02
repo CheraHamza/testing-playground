@@ -1,4 +1,9 @@
-const { capitalize, reverseString, calculator } = require("./script.js");
+const {
+	capitalize,
+	reverseString,
+	calculator,
+	caesarCipher,
+} = require("./script.js");
 
 describe("capitalize", () => {
 	const testCases = [
@@ -54,4 +59,18 @@ describe("calculator", () => {
 	});
 });
 
+describe("caesarCipher", () => {
+	const testCases = [
+		{ input: "abc", shiftBy: 3, expected: "def" },
+		{ input: "xyz", shiftBy: 3, expected: "abc" },
+		{ input: "HeLLo", shiftBy: 3, expected: "KhOOr" },
+		{ input: "Hello, World!", shiftBy: 3, expected: "Khoor, Zruog!" },
+	];
 
+	test.each(testCases)(
+		"given $input, shifting it by $shiftBy it becomes $expected",
+		({ input, shiftBy, expected }) => {
+			expect(caesarCipher(input, shiftBy)).toBe(expected);
+		}
+	);
+});
